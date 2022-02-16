@@ -11,9 +11,13 @@ const loadNotes = () => {
   }
 };
 
-const saveNote = (notes) => {
+const saveNote = (notes, flag) => {
   fs.writeFileSync("./notes.json", JSON.stringify(notes));
-  console.log(chalk.green("Notes saved"));
+  if(flag){
+    console.log(chalk.green("Notes saved"));
+  }else{
+    console.log(chalk.green("Notes removed"));
+  }
 };
 
 const addNote = (title, body) => {
@@ -24,7 +28,7 @@ const addNote = (title, body) => {
       console.log(chalk.red("Note title already exist. Try Again!"))
   }else{
       allNotes.push(newNote)
-      saveNote(allNotes);
+      saveNote(allNotes, true);
   }
 };
 
@@ -39,7 +43,30 @@ const readNote = (title) => {
   }
 }
 
+const removeNote = title => {
+  const allNotes = loadNotes();
+  const foundNote = allNotes.find(note => note.title === title)
+  if(foundNote){
+    const filteredNote = allNotes.filter(note => note.title !== title)
+    saveNote(filteredNote)
+  }else{
+    console.log(chalk.red('Note does not exist.'))
+  }
+}
+
+const listNotes = () => {
+  const allNotes = loadNotes();
+  console.log(chalk.blue("ALL NOTE ITEMS"))
+  allNotes.forEach(note => {
+    console.log(chalk.grey("____________________"))
+    console.log(chalk.grey("Title : ", note.title))
+    console.log(chalk.grey("Body : ", note.body))
+  })
+}
+
 module.exports = {
   addNote,
-  readNote
+  readNote,
+  removeNote,
+  listNotes
 };
