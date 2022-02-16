@@ -27,12 +27,15 @@
 
 
 const http = require("http");
+let counter = 0;
 
 const requestListener = (request, response) => {
+    ++counter;
+
     console.log("URL : ", request.url);
     console.log("METHOD : ", request.method);
     console.log("HEADERS : ", request.headers);
-    response.write("Hello Client");
+    response.write("Hello Client - " + counter);
     response.end();
 }
 
