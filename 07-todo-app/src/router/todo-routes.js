@@ -1,24 +1,12 @@
 const express = require("express");
-const TodoModel = require("../model/todo-model");
+const { getTodos, createTodo, deleteTodo } = require("../controller/todo-controller");
 const TodoRouter = express.Router();
 
 TodoRouter.route("/")
-    .get((req, res) => {
-        TodoModel.find().then(result => {
-            return res.send(result)
-        }).catch(err => {
-            console.log(err);
-            return res.send(err)
-        })
-    })
-    .post((req, res) => {
-        const newTodo = new TodoModel(req.body);
-        newTodo.save().then(result => {
-            return res.send(result)
-        }).catch(err=>{
-            console.log(err);
-            return res.send(err);
-        })
-    })
+    .get(getTodos)
+    .post(createTodo)
+
+TodoRouter.route("/:id")
+    .delete(deleteTodo)
 
 module.exports = TodoRouter;
