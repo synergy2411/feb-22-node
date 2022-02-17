@@ -33,8 +33,32 @@ const deleteTodo = async (req, res) => {
     }
 }
 
+const getTodo = async (req , res) => {
+    try{
+        const { id } = req.params;
+        const result = await TodoModel.findById(id)
+        return res.send(result);
+    }catch(err){
+        console.log(err);
+        return res.send(err)
+    }
+}
+
+const updateTodo = async(req, res) => {
+    try{
+        const { id } = req.params;
+        const result = await TodoModel.findByIdAndUpdate(id, req.body)
+        return res.send(result);
+    }catch(err){
+        console.log(err);
+        return res.send(err)
+    }
+}
+
 module.exports = {
   getTodos,
   createTodo,
-  deleteTodo
+  deleteTodo,
+  getTodo,
+  updateTodo
 };

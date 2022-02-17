@@ -1,5 +1,5 @@
 const express = require("express");
-const { getTodos, createTodo, deleteTodo } = require("../controller/todo-controller");
+const { getTodos, createTodo, deleteTodo, getTodo, updateTodo } = require("../controller/todo-controller");
 const TodoRouter = express.Router();
 
 TodoRouter.route("/")
@@ -8,5 +8,7 @@ TodoRouter.route("/")
 
 TodoRouter.route("/:id")
     .delete(deleteTodo)
+    .get(getTodo)
+    .patch(updateTodo)
 
 module.exports = TodoRouter;
