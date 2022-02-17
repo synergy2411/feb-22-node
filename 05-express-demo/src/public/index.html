@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="text-center">Login Form</h5>
+                        <br>
+                        <form action="http://localhost:9091/api/login" method="POST">
+                            <div class="form-group">
+                                <label for="email">Email : </label>
+                                <input type="email" class="form-control" name="user-email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password : </label>
+                                <input type="password" class="form-control" name="user-password">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary btn-block" type="submit">Login</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-warning btn-block" type="button">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded());
 
 const users = [
   {
@@ -56,9 +57,6 @@ app.post("/api/users", (req, res)=>{
     return res.send(newUser);
 })
 
-
-
-
 // http://localhost:9091/api/users/10003 - GET - Single User
 app.get("/api/users/:userId", (req, res) => {
     const { userId } = req.params;
@@ -75,9 +73,20 @@ app.get("/api/users", (req, res)=>{
     res.send(users);
 })
 
+app.post("/api/login", (req, res) => {
+    console.log(req.body);
+    res.send({message : "LOGIN SUCCESSFULLY"})
+})
+
+app.get("/api/login", (req, res) => {
+    console.log(req.query);
+    res.send({message : "SUCCESS"})
+})
+
 // http://localhost:9091
 app.get("/", (request, response) => {
-  response.send({ message: "SUCCESS" });
+//   response.send({ message: "SUCCESS" });
+  response.sendFile(__dirname + "/public/index.html")
 });
 
 app.listen(9091, () => {
