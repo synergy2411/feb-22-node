@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended : true}));
+app.use(express.static(__dirname+"/public"));
+
 
 const users = [
   {
@@ -21,7 +23,6 @@ const users = [
     age: 36,
   },
 ];
-
 
 app.patch("/api/users/:userId", (req, res)=>{
     const { userId } = req.params;
