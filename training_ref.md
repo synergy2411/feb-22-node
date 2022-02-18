@@ -75,3 +75,31 @@ Z -> Patch - 1.0.1
 - Download and install heroku CLI
 - heroku --version
 - Create git repo link for the deplpy project
+- Download and install git-scm bash
+- Create Git repo and check-in the project to deploy
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/synergy2411/honeywell-chattr-app.git
+git push -u origin main
+
+- heroku login
+- heroku keys:add
+    - Optional Step - to generate SSH - Powershell > ssh-keygen
+- heroku create <unique_app_name>
+- git remote
+- git push heroku main
+
+
+# Testing Libraries
+- chai
+- chai-http
+- mocha -> npm install mocha -g
+
+// describe() : Test suite
+// it() : test statement / spec
+// beforeEach()
+// afterEach()
+// beforeAll()
+// afterAll()
