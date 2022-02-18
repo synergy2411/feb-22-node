@@ -1,0 +1,16 @@
+<h4>The Home Page</h4>
+
+<p>{{user.firstName}} {{user.lastName}}</p>
+
+<ul>
+{{#each users}}
+    <li>
+        {{this.name}} - {{this.age}} - {{ @index }}
+        {{#if this.comments}}
+            {{#each this.comments}}
+                <blockquote>{{this.body}} - <cite> {{this.stars}} </cite></blockquote>
+            {{/each}}
+        {{/if}}
+    </li>
+{{/each}}
+</ul>

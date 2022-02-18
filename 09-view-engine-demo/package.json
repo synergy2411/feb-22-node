@@ -1,0 +1,16 @@
+{
+  "name": "09-view-engine-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "SumitK",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^5.3.5"
+  }
+}
