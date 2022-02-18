@@ -54,7 +54,7 @@ Z -> Patch - 1.0.1
 
 # Event System - Stream & Buffer
 # Express 
-# Data persistence using MongoDB
+# Data persistence using MongoDB / Mongoose
 
 
 
@@ -62,3 +62,8 @@ Z -> Patch - 1.0.1
 
 
 # npm install nodemon -g
+
+
+# JWT Handling - API protection
+# View Engine (Handlebars / EJS)
+# Socket programming
