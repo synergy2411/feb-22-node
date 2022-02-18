@@ -67,3 +67,11 @@ Z -> Patch - 1.0.1
 # JWT Handling - API protection
 # View Engine (Handlebars / EJS)
 # Socket programming
+
+
+
+# Heroku Deployment Steps
+- Signup and login on heroku
+- Download and install heroku CLI
+- heroku --version
+- Create git repo link for the deplpy project
