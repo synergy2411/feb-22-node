@@ -1,7 +1,15 @@
 const express = require("express");
 const expHbs = require("express-handlebars");
-
+const env = require("dotenv").config()
 const app = express();
+const { PORT } = require("./environments");
+
+// const externalApiCall = () => {
+
+// }
+// app.use(externalApiCall);
+
+// const PORT = process.env.PORT || 9003;
 
 app.set("view engine", "hbs");
 // app.set("view engine", "ejs");
@@ -49,4 +57,4 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
-app.listen(9003, () => console.log("Server started at PORT : 9003"));
+app.listen(PORT, () => console.log("Server started at PORT :" + PORT));
