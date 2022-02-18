@@ -8,6 +8,11 @@ const io = require("socket.io")(server);
 io.on("connection", client => {
     console.log("Client Connected");
     client.emit("acknowledge", {message : "You are now connected!"})
+    client.on("MsgToServer", (chatterName, message) => {
+        console.log(chatterName + " Says : ", message);
+        client.emit("MsgToClient", "Me", message);
+        client.broadcast.emit("MsgToClient", chatterName, message);
+    })
 })
 
 app.get("/", (req, res) => {
